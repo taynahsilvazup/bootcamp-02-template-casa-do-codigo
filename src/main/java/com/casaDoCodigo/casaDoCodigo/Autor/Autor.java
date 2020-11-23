@@ -23,7 +23,7 @@ public class Autor {
 
     @NotBlank(message = "Por favor, informe o email.")
     @Email(message = "Formato inválido")
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
     @NotBlank(message = "Por favor, informe a descrição.")
@@ -31,18 +31,21 @@ public class Autor {
     @Column(name = "DESCRICAO")
     private String descricao;
 
-    @NotBlank
     @Column(name = "DATA_CADASTRO")
-    private LocalDateTime dataCadastro = LocalDateTime.now();
+    private final LocalDateTime dataCadastro = LocalDateTime.now();
+
+    public Long getId() {
+        return id;
+    }
 
     @Deprecated
-    private Autor(){
+    protected Autor(){
     }
 
     public Autor(@NotBlank String nome, @NotBlank @Email String email, @NotBlank String descricao) {
-        Assert.hasText(nome, "Informe o nome.");
-        Assert.hasText(email, "Informe o email.");
-        Assert.hasText(descricao, "Informe a descrição.");
+        Assert.hasLength(nome, "Informe o nome.");
+        Assert.hasLength(email, "Informe o email.");
+        Assert.hasLength(descricao, "Informe a descrição.");
 
         this.nome = nome;
         this.email = email;
