@@ -1,0 +1,15 @@
+    CREATE TABLE livro (
+        id BIGINT NOT NULL AUTO_INCREMENT,
+        titulo VARCHAR(160) NOT NULL,
+        resumo VARCHAR(500) NOT NULL,
+        sumario VARCHAR(500),
+        preco DECIMAL(8,2) NOT NULL CHECK (preco >= 20),
+        paginas INT NOT NULL CHECK (paginas >= 100),
+        lsbn VARCHAR(200) NOT NULL UNIQUE,
+        data_publicacao DATETIME,
+        categoria_id BIGINT NOT NULL,
+        autor_id BIGINT NOT NULL,
+        data_cadastro DATETIME NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY (categoria_id) REFERENCES categoria(id),
+        FOREIGN KEY (autor_id) REFERENCES autor(id));

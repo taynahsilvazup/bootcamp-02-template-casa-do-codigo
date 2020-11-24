@@ -1,5 +1,6 @@
 package com.casaDoCodigo.casaDoCodigo.Autor;
 
+import com.casaDoCodigo.casaDoCodigo.ValidationUtils.UniqueValue;
 import org.springframework.util.Assert;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ public class NovoAutorRequest {
 
     @NotBlank(message = "Por favor, informe o email.")
     @Email(message = "Formato inválido")
-    @Column(unique = true)
+    @UniqueValue(domainClass = Autor.class, fieldName = "email", message = "Email já existente")
     private String email;
 
     @NotBlank(message = "Por favor, informe a descrição.")

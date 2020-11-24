@@ -21,13 +21,6 @@ public class CategoriaController {
     @PersistenceContext
     EntityManager manager;
 
-    @Autowired
-    ValidaCategoriaDuplicadaValidator validaCategoriaDuplicadaValidator;
-
-    @InitBinder
-    public void init(WebDataBinder binder) {
-        binder.addValidators(validaCategoriaDuplicadaValidator);
-    }
 
     @PostMapping("/categoria")
     @Transactional
