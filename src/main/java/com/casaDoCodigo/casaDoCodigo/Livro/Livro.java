@@ -131,6 +131,4 @@ public class Livro {
         this.categoriaId = categoria;
         this.autorId = autor;
     }
-
-
 }

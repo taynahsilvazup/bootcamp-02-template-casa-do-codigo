@@ -26,6 +26,14 @@ public class Categoria {
         return id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
+
     @Deprecated
     protected Categoria(){
     }
