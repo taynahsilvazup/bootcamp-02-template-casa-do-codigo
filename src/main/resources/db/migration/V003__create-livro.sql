@@ -5,7 +5,7 @@
         sumario VARCHAR(500),
         preco DECIMAL(8,2) NOT NULL CHECK (preco >= 20),
         paginas INT NOT NULL CHECK (paginas >= 100),
-        lsbn VARCHAR(200) NOT NULL UNIQUE,
+        isbn VARCHAR(200) NOT NULL UNIQUE,
         data_publicacao DATETIME,
         categoria_id BIGINT NOT NULL,
         autor_id BIGINT NOT NULL,

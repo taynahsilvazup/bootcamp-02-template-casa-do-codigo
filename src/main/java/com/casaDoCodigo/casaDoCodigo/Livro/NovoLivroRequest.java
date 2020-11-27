@@ -32,8 +32,8 @@ public class NovoLivroRequest {
     private Integer paginas;
 
     @NotBlank
-    @UniqueValue(domainClass = Livro.class, fieldName = "lsbn", message = "Lsbn já existente.")
-    private String lsbn;
+    @UniqueValue(domainClass = Livro.class, fieldName = "isbn", message = "Isbn já existente.")
+    private String isbn;
 
     @NotNull
     @Future
@@ -66,8 +66,8 @@ public class NovoLivroRequest {
         return paginas;
     }
 
-    public String getLsbn() {
-        return lsbn;
+    public String getIsbn() {
+        return isbn;
     }
 
     public LocalDate getDataPublicacao() {
@@ -90,7 +90,7 @@ public class NovoLivroRequest {
                             String sumario,
                             @NotBlank BigDecimal preco,
                             @NotBlank Integer paginas,
-                            @NotBlank String lsbn,
+                            @NotBlank String isbn,
                             @NotBlank LocalDate dataPublicacao,
                             @NotBlank Long categoria,
                             @NotBlank Long autor) {
@@ -99,7 +99,7 @@ public class NovoLivroRequest {
         this.sumario = sumario;
         this.preco = preco;
         this.paginas = paginas;
-        this.lsbn = lsbn;
+        this.isbn = isbn;
         this.dataPublicacao = dataPublicacao;
         this.categoriaId = categoria;
         this.autorId = autor;
@@ -112,6 +112,6 @@ public class NovoLivroRequest {
         Autor autor = manager.find(Autor.class, autorId);
         Assert.state(autor != null, "Autor(a) " + autorId + " não encontrado(a)");
 
-        return  new Livro(titulo, resumo, sumario, preco, paginas, lsbn, dataPublicacao, categoria, autor);
+        return  new Livro(titulo, resumo, sumario, preco, paginas, isbn, dataPublicacao, categoria, autor);
     }
 }

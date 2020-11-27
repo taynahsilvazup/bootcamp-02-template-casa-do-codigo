@@ -18,7 +18,7 @@ public class LivroDTO {
 
     private Integer paginas;
 
-    private String lsbn;
+    private String isbn;
 
     private LocalDate dataPublicacao;
 
@@ -33,7 +33,7 @@ public class LivroDTO {
         this.sumario = livro.getSumario();
         this.preco = livro.getPreco();
         this.paginas = livro.getPaginas();
-        this.lsbn = livro.getLsbn();
+        this.isbn = livro.getIsbn();
         this.dataPublicacao = livro.getDataPublicacao();
     }
 }

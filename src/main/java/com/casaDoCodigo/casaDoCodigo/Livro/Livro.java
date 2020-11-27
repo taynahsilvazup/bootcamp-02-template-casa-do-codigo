@@ -43,8 +43,8 @@ public class Livro {
     private Integer paginas;
 
     @NotBlank
-    @Column(name = "LSBN")
-    private String lsbn;
+    @Column(name = "ISBN")
+    private String isbn;
 
     @NotNull
     @Column(name = "DATA_PUBLICACAO")
@@ -87,8 +87,8 @@ public class Livro {
         return paginas;
     }
 
-    public String getLsbn() {
-        return lsbn;
+    public String getIsbn() {
+        return isbn;
     }
 
     public LocalDate getDataPublicacao() {
@@ -116,7 +116,7 @@ public class Livro {
                  String sumario,
                  @NotNull BigDecimal preco,
                  @NotNull Integer paginas,
-                 @NotBlank String lsbn,
+                 @NotBlank String isbn,
                  @NotNull LocalDate dataPublicacao,
                  @NotNull Categoria categoria,
                  @NotNull Autor autor) {
@@ -126,7 +126,7 @@ public class Livro {
         this.sumario = sumario;
         this.preco = preco;
         this.paginas = paginas;
-        this.lsbn = lsbn;
+        this.isbn = isbn;
         this.dataPublicacao = dataPublicacao;
         this.categoriaId = categoria;
         this.autorId = autor;
